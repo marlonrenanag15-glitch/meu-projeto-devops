@@ -1,0 +1,23 @@
+name: Pipeline de CI/CD
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+      - name: Simulando um passo de build
+        run: echo "Build executado com sucesso!"
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+      - name: Simulando um passo de deploy
+        run: echo "Deploy executado com sucesso!"
